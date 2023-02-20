@@ -58,13 +58,13 @@ const Sorting = ({setTodos,Todos,setSearch}) => {
   return (
     <div className='flex gap-1'>
 
-        <div className='flex items-center p-3.5 bg-blue-700 text-white rounded-full justify-center hover:text-blue-700
-        hover:bg-white border border-blue-700
+        <div className='flex items-center p-3 bg-blue-700 text-white rounded justify-center hover:text-blue-700
+        hover:bg-white border-2 border-blue-700
         transition-all' onClick={()=>sortAlphabtically()}>
             <BiSortZA className='scale-150'/>
         </div>
-        <div className='flex items-center  p-1.5 bg-blue-700 text-white font-bold rounded-full hover:text-blue-700
-        hover:bg-white border border-blue-700
+        <div className='flex items-center  p-1 bg-blue-700 text-white font-bold rounded hover:text-blue-700
+        hover:bg-white border-2 border-blue-700
         transition-all' onClick={()=>sortbyDate()}>
             <BiSort className='scale-125'/>
             <BiTimeFive className='scale-125'/>

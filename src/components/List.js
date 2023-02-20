@@ -31,7 +31,7 @@ const List = () => {
 // 
   function handleCheked(todo){
     const filt=Todos.map(el=>{
-      if(el==todo){
+      if(el===todo){
         return {...el,checked:!el.checked} 
     }
     else{return el}
@@ -42,16 +42,15 @@ const List = () => {
     
   return (
     <div className= 'grid mt-10  justify-center'>
-        <p className=' hidden'>{Search}</p>
         <div className='empty-list' style={{display:Todos.length<1?'grid':'none'}}>
               Empty List...
         </div>
         {Todos.map((el,index)=>{
           return(
-            <div 
+            <>{el.showTodo?<div 
             onMouseEnter={()=>showDescipt(el.id,'show')}
             onMouseLeave={()=>showDescipt(el.id,'hide')}
-            key={index}
+            key={el.id}
               className=' cursor-pointer transition-all bg-white gap-2 grid shadow-xl m-2 text-xl rounded-lg border-2 border-blue-600 p-3' style={{display:el.title.length<=1?'none':'grid'}}>
               <div className=' font-bold flex justify-between items-baseline  '>
                 <input onChange={()=>handleCheked(el)} className='scale-150 '  checked={el.checked} type='checkbox'/>
@@ -61,7 +60,7 @@ const List = () => {
                 scale-110 transition-all translate-y-0.5'/></button>
               </div>
               {el.showDescipt?<div className='descript text-base text-gray'>{el.description}</div>:null}
-            </div>
+            </div>:null}</>
         )})}
     </div>
   )

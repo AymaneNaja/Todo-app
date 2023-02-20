@@ -20,7 +20,7 @@ const Popup = ({popup,setpop}) => {
         const date=getDate.current.value
         const description=getDescript.current.value
         if(title.length>=3){ 
-        Newdata.push({title:title,date:date,description:description,checked:false,showDescript:false,id:ranId})
+        Newdata.push({title:title,date:date,description:description,checked:false,showDescript:false,id:ranId,showTodo:true})
         setTodos(Newdata)
         setpop(!popup)
         }

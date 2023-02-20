@@ -10,14 +10,19 @@ const Nav = ({popup,setpop}) => {
   function findTodo(){
     if(SearchRef.current.value.length>=1 && Todos.length>=1){
       setSearch(SearchRef.current.value)
-      const UpdatedTodos=Todos.sort((el)=>{
-        if(el.title.includes(Search)){
-          return -1
+      const UpdatedTodos=Todos.map((todo)=>{
+        if(todo.title.includes(Search)){
+          return {...todo,showTodo:true}
         }
-        else{return 1}
+        else return {...todo,showTodo:false}
       })
       setTodos(UpdatedTodos)
-      console.log(Todos)
+    }
+    else{
+      const UpdatedTodos=Todos.map((todo)=>{
+          return {...todo,showTodo:true}
+        })
+      setTodos(UpdatedTodos)
     }
   }
 
